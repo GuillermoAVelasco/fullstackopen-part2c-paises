@@ -22,6 +22,7 @@ function App() {
       .then(response=>{
         setMje('')
         setPaises([])
+        setDatosPais('')
         if(response.data.length>10){
           setMje('Too many matches, specify another filter')
         }
@@ -33,6 +34,9 @@ function App() {
         }
       })
     }
+    else axios.get('https://restcountries.eu/rest/v2/all').then(response=>{
+      setPaises(response.data)
+  })
   },[filter])
 
   const setFilterFind=(e)=>{
