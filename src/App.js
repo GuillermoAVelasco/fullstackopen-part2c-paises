@@ -9,6 +9,7 @@ function App() {
   const [filter,setFilter]=useState('')
   const [mje,setMje]=useState('')
   const [datosPais,setDatosPais]=useState([])
+  
   useEffect(()=>{
     axios.get('https://restcountries.eu/rest/v2/all')
     .then(response=>{
@@ -39,6 +40,15 @@ function App() {
   })
   },[filter])
 
+  const datosPaisShow=(e)=>{
+    axios.get('https://restcountries.eu/rest/v2/name/'+e.target.value)
+    .then(response=>{
+      setMje('')
+      setPaises([])
+      setDatosPais(response.data)
+    })
+  }
+
   const setFilterFind=(e)=>{
     setFilter(e.target.value)
   }
@@ -46,7 +56,7 @@ function App() {
   return (
     <div className="App">
         <Filter paises={paises} filter={filter} setFilterFind={setFilterFind}/>
-        <Paises paises={paises}/>
+        <Paises paises={paises} datosPaisShow={datosPaisShow} />
         {(datosPais.length>0)?<DatosPais datosPais={datosPais}/>:''}
         
         <p>{mje}</p>
