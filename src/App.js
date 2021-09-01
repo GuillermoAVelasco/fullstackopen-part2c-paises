@@ -8,7 +8,7 @@ function App() {
   const [paises,setPaises]=useState([])
   const [filter,setFilter]=useState('')
   const [mje,setMje]=useState('')
-  const [datosPais,setDatosPais]=useState([])
+  const [datosPais,setDatosPais]=useState([])  
   
   useEffect(()=>{
     axios.get('https://restcountries.eu/rest/v2/all')
