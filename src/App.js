@@ -4,6 +4,7 @@ import Paises from "./components/Paises"
 import Filter from "./components/Filter"
 import DatosPais from "./components/DatosPais"
 
+//npm run start .env.local
 function App() {
   const [paises,setPaises]=useState([])
   const [filter,setFilter]=useState('')
