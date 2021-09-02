@@ -1,4 +1,4 @@
-const Filter=({paises,filter,setFilterFind})=>{
+const Filter=({filter,setFilterFind})=>{
     return(
         <div>
             Find Countries:<input type="text" value={filter} onChange={setFilterFind}/>
